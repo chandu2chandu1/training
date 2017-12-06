@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <a
+      routeLink="/course" 
+      class="list-group-item clearfix"
+       style="cursor:pointer"
+      *ngFor='let course of courseList;'
+      (click)='CourseSelectionChange(course)'
+       appHighlighter>
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">
+          {{ course.CourseName}}
+        </h4>
+        <p class="list-group-item-text">
+          {{ course.CourseDescription | trim:100}}
+        </p>
+      </div>
+      <span class="pull-right">
+        <img 
+          src="{{ course.ImageUrl }}" 
+          alt="" 
+          class="img-responsive" 
+          style="max-height: 50px;"/>
+      </span>
+    </a>
+  </div>
+</div>

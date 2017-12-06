@@ -1,0 +1,11 @@
+<label for="">Name - Two way binding</label>
+<input type="text" [(ngModel)]="employee.name">
+
+<br/>
+<label for="">Name - One way binding</label>
+<input type="text" [ngModel]="employee.name" (input)="updateMyModel($event)">
+<br/>
+{{ employee.name }}
+
+<br/>
+<input type="text" [(value)]="employee.name">

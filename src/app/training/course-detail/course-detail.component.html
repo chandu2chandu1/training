@@ -1,0 +1,26 @@
+<div class="row">
+<div class="col-xs-12">
+  <img src="" alt="" class="img-responsive"/>
+</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ selectedCourse.CourseName }}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+     {{ selectedCourse.CourseDescription }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <img 
+    [src]="selectedCourse.ImageUrl" 
+    alt="" 
+    class="img-responsive" 
+    style="max-height: 350px;" />
+  </div>
+</div>

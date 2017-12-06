@@ -1,0 +1,16 @@
+<div class="row">
+
+  <a *ngIf="SelectedCourse" style="margin-left:10px" class="btn btn-primary pull-right" [routerLink]="['/editcourse',SelectedCourse.Id]">Edit Course</a>
+  <a class="btn btn-primary pull-right" routerLink="/createcourse">
+    New Course
+  </a>
+  
+  <div class="col-md-5">
+    <app-course-list 
+    [courseList]='CourseList'
+    (CourseSelectionChange)="ShowCourseDetails($event)"></app-course-list>
+  </div>
+  <div class="col-md-7">
+    <app-course-detail *ngIf='SelectedCourse' [SelectedCourse]='SelectedCourse'></app-course-detail>
+  </div>
+</div>
