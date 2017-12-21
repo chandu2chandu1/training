@@ -1,0 +1,28 @@
+<div class="row">
+<div class="col-sm-3" *ngFor="let trainer of trainerList">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">{{ trainer.FirstName}}</h4>
+      <p class="card-text">Details of the trainer {{ trainer.FirstName }} {{ trainer.LastName }} goes here..</p>
+      <a [routerLink]="['/trainer', trainer.Id]" class="card-link">more..</a>
+    </div>
+  </div>
+</div>
+</div>
+<!-- 
+<div class="card" style="width: 20rem;" >
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">{{ trainer.FirstName }}</h4>
+    <p class="card-text">All about {{ trainer.FirstName }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
+<!-- <div class="column">
+  <div class="col-md-4">
+    <a [routerLink]="['/trainer', trainer.Id]" class="list-group-item" style="cursor:pointer" *ngFor="let trainer of trainerList">
+      {{ trainer.FirstName }} {{ trainer.LastName }}
+    </a>
+  </div>
+</div> -->

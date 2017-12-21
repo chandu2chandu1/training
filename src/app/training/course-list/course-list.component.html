@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
+    <input type="text" class="form-control" [(ngModel)]="filterText" placeholder="Search here.."/>
     <a
       routeLink="/course" 
       class="list-group-item clearfix"
        style="cursor:pointer"
-      *ngFor='let course of courseList;'
+      *ngFor='let course of courseList | filterData:"CourseDescription" : filterText;'
       (click)='CourseSelectionChange(course)'
        appHighlighter>
       <div class="pull-left">

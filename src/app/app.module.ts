@@ -1,3 +1,4 @@
+import { TrainerService } from './Services/trainer.service';
 import { TrimmerPipe } from './shared/trimmer.pipe';
 //import { FilterPipe } from './shared/course-filter.pipe';
 
@@ -8,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes} from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +21,11 @@ import { HelloworldComponent } from './helloworld/helloworld.component';
 import { CreateCourseComponent } from './training/create-course/create-course.component';
 import { EditCourseComponent } from './training/edit-course/edit-course.component';
 import { HighlighterDirective } from './shared/highlighter.directive';
+import { FilterPipe } from './shared/course-filter.pipe';
+import { TrainerComponent } from './training/trainer/trainer.component';
+import { TrainerListComponent } from './training/trainer-list/trainer-list.component';
+import { TrainerDetailComponent } from './training/trainer-detail/trainer-detail.component';
+
 
 
 const appRoutes: Routes = [
@@ -34,10 +41,10 @@ const appRoutes: Routes = [
     path: "createcourse",
     component: CreateCourseComponent
   },
-  {
-    path: "trainer",
-    component: TrainingComponent
-  },
+  // {
+  //   path: "trainer",
+  //   component: TrainingComponent
+  // },
   {
     path: "demo",
     component: HelloworldComponent
@@ -45,6 +52,14 @@ const appRoutes: Routes = [
   {
     path: "editcourse/:id",
     component:EditCourseComponent
+  },
+  {
+    path: "trainer",
+    component: TrainerComponent,
+    children: [{
+      path: ":id",
+      component: TrainerComponent
+    }]
   }
 ];
 @NgModule({
@@ -60,8 +75,11 @@ const appRoutes: Routes = [
     CreateCourseComponent,
     TrimmerPipe,
     EditCourseComponent,
-    HighlighterDirective
-    //FilterPipe,
+    HighlighterDirective,
+    FilterPipe,
+    TrainerComponent,
+    TrainerListComponent,
+    TrainerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +88,10 @@ const appRoutes: Routes = [
       appRoutes,{
         enableTracing:true
       }
-    )
+    ),
+    HttpModule
   ],
-  providers: [CourseService],
+  providers: [CourseService, TrainerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

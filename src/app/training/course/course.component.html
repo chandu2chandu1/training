@@ -1,10 +1,14 @@
 <div class="row">
-
+<div class="col-md-12">
   <a *ngIf="SelectedCourse" style="margin-left:10px" class="btn btn-primary pull-right" [routerLink]="['/editcourse',SelectedCourse.Id]">Edit Course</a>
   <a class="btn btn-primary pull-right" routerLink="/createcourse">
     New Course
   </a>
-  
+</div>
+
+</div>
+<div class="row">
+
   <div class="col-md-5">
     <app-course-list 
     [courseList]='CourseList'
