@@ -18,7 +18,6 @@ export class TrainerListComponent implements OnInit {
       response => {
         this.trainerList = response.json();
         console.log("From trainer list component", this.trainerList);
-        alert("Hello");
       }
     );
   }

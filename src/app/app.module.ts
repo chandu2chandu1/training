@@ -25,6 +25,8 @@ import { FilterPipe } from './shared/course-filter.pipe';
 import { TrainerComponent } from './training/trainer/trainer.component';
 import { TrainerListComponent } from './training/trainer-list/trainer-list.component';
 import { TrainerDetailComponent } from './training/trainer-detail/trainer-detail.component';
+import { GitUsersComponent } from './git-users/git-users.component';
+import { GitUserService } from './Services/git.service';
 
 
 
@@ -58,8 +60,12 @@ const appRoutes: Routes = [
     component: TrainerComponent,
     children: [{
       path: ":id",
-      component: TrainerComponent
+      component: TrainerDetailComponent
     }]
+  },
+  {
+    path:"git",
+    component: GitUsersComponent
   }
 ];
 @NgModule({
@@ -79,7 +85,8 @@ const appRoutes: Routes = [
     FilterPipe,
     TrainerComponent,
     TrainerListComponent,
-    TrainerDetailComponent
+    TrainerDetailComponent,
+    GitUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +98,7 @@ const appRoutes: Routes = [
     ),
     HttpModule
   ],
-  providers: [CourseService, TrainerService],
+  providers: [CourseService, TrainerService, GitUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

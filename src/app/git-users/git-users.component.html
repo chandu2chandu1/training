@@ -1,0 +1,28 @@
+<br/>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="input-group">
+            <input type="text" [(ngModel)]="searchUser" class="form-control" placeholder="Search users">
+            <span class="input-group-btn">
+                <button class="btn btn-default" ngModel (click)="searchUsers()" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+    </div>  
+<br/>
+<div class="row">
+
+  <div class="col-md-3" *ngFor="let u of gitUserModel">
+    <div class="card">
+      <img class="card-img-top" style="max-height: 220px;min-height:220px" src="{{ u.avatar_url }}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{ u.login }}</h4>
+        <p class="card-text">
+          User Name: {{ u.name }}
+          <br/> URL : {{ u.html_url }}
+        </p>
+        <!-- <a [routerLink]="['/', u.login]" class="btn btn-primary">Does Nothing</a> -->
+      </div>
+    </div>
+  </div>
+</div>
