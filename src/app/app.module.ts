@@ -1,3 +1,4 @@
+import { LimitCharacterPipe } from './shared/limitCharacters.pipe';
 import { TrainerService } from './Services/trainer.service';
 import { TrimmerPipe } from './shared/trimmer.pipe';
 //import { FilterPipe } from './shared/course-filter.pipe';
@@ -83,6 +84,7 @@ const appRoutes: Routes = [
     EditCourseComponent,
     HighlighterDirective,
     FilterPipe,
+    LimitCharacterPipe,
     TrainerComponent,
     TrainerListComponent,
     TrainerDetailComponent,

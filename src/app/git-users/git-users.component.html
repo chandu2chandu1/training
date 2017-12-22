@@ -1,14 +1,17 @@
-<br/>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="input-group">
-            <input type="text" [(ngModel)]="searchUser" class="form-control" placeholder="Search users">
-            <span class="input-group-btn">
-                <button class="btn btn-default" ngModel (click)="searchUsers()" type="button">Go!</button>
-            </span>
-        </div>
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="search" [(ngModel)]="searchUser" class="form-control" placeholder="Search users">
+      <span class="input-group-btn">
+        <button class="btn btn-default" (click)="searchUsers()" type="button">Go!</button>
+      </span>
     </div>
-    </div>  
+  </div>
+  <div class="col-lg-2 pull-right">
+      <button class="btn btn-primary" (click)="getAllUsers()">Get Users</button>
+  </div>
+</div>
+<img src="./assets/images/dualRing.gif" *ngIf="isBusy" alt="loading" style="max-height:50px" />
 <br/>
 <div class="row">
 
@@ -19,10 +22,12 @@
         <h4 class="card-title">{{ u.login }}</h4>
         <p class="card-text">
           User Name: {{ u.name }}
-          <br/> URL : {{ u.html_url }}
+          <br/> <a href="{{ u.html_url }}" target="_blank">Go</a> 
         </p>
         <!-- <a [routerLink]="['/', u.login]" class="btn btn-primary">Does Nothing</a> -->
       </div>
     </div>
   </div>
+
+  <h2 *ngIf="gitUserModel.length == 0 && !isBusy">No users found!!</h2>
 </div>
