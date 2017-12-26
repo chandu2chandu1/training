@@ -8,31 +8,31 @@
     </div>
   </div>
   <div class="col-lg-2 pull-right">
-      <button class="btn btn-primary" (click)="getAllUsers()">Get Users</button>
+    <button class="btn btn-primary" (click)="getAllUsers()">Get Users</button>
   </div>
 </div>
 <img src="./assets/images/dualRing.gif" *ngIf="isBusy" alt="loading" style="max-height:50px" />
 <br/>
-<div class="row">
-
-  <div class="col-md-3" *ngFor="let u of gitUserModel">
+<router-outlet></router-outlet>
+<div class="row"  *ngIf="gitUserModel.length>0">
+  <div class="col-md-3" style="cursor:pointer" *ngFor="let u of gitUserModel" (click)="showUserDetail(u.login)">
     <div class="card">
       <img class="card-img-top" style="max-height: 220px;min-height:220px" src="{{ u.avatar_url }}" alt="Card image cap">
+
       <div class="card-block">
         <h4 class="card-title">
-            <a class="btn btn-primary" href="{{ u.html_url }}" target="_blank">{{ u.login }}</a>
+          <a class="btn btn-primary" href="{{ u.html_url }}" target="_blank">{{ u.login }}</a>
         </h4>
         <p class="card-text">
-          
+
         </p>
         <!-- <a [routerLink]="['/', u.login]" class="btn btn-primary">Does Nothing</a> -->
       </div>
     </div>
   </div>
-
-  <h2 *ngIf="gitUserModel.length == 0 && !isBusy">No users found!!</h2>
 </div>
+<h2 *ngIf="gitUserModel.length == 0 && !isBusy">No users found!!</h2>
 
 <div class="row" *ngIf="isSearch && hasNextPage">
-    <button class="btn btn-default" style="width:100%" (click)="searchUsers(currentPage + 1)">more..</button>
+  <button class="btn btn-default" style="width:100%" (click)="searchUsers(currentPage + 1)">more..</button>
 </div>

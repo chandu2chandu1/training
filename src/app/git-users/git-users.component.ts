@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 import { GitUserModel } from './../models/gitUser.model';
 import { GitUserService } from './../Services/git.service';
 import { Component, OnInit } from '@angular/core';
 import 'rxjs';
-import { Response } from '@angular/http/src/static_response';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-git-users',
@@ -11,7 +12,7 @@ import { Response } from '@angular/http/src/static_response';
 })
 export class GitUsersComponent implements OnInit {
 
-  gitUserModel: GitUserModel[];
+  gitUserModel: GitUserModel[] = [];
   searchUser: string;
   isSearch = false;
   isBusy = false;
@@ -19,7 +20,7 @@ export class GitUsersComponent implements OnInit {
   currentPage = 1;
   hasNextPage = true;
 
-  constructor(private gitUserService:GitUserService) { }
+  constructor(private gitUserService:GitUserService, private route:Router) { }
 
   ngOnInit() {
     //this.getAllUsers();
@@ -59,5 +60,9 @@ export class GitUsersComponent implements OnInit {
         this.currentPage = pageIndex;
       }
     )
+  }
+
+  showUserDetail(userName:string) {
+    this.route.navigate(['/git/' + userName]);
   }
 }

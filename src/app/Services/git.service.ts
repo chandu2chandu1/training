@@ -26,4 +26,8 @@ export class GitUserService{
             , this.header);
     }
 
+    getUserDetail(userId: string) {
+        return this.http.get(this.gitUrl + "/users/" + userId);
+    }
+
 }

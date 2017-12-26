@@ -1,0 +1,17 @@
+<div *ngIf="selectedUser" class="modal-fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="closeDialog()">&times;</button>
+        <h4 class="modal-title">{{ selectedUser.name }}</h4>
+      </div>
+      <div class="modal-body">
+        <img src="{{ selectedUser.avatar_url }}" alt="{{ selectedUser.name }}" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="closeDialog()" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

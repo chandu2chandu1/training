@@ -28,6 +28,7 @@ import { TrainerListComponent } from './training/trainer-list/trainer-list.compo
 import { TrainerDetailComponent } from './training/trainer-detail/trainer-detail.component';
 import { GitUsersComponent } from './git-users/git-users.component';
 import { GitUserService } from './Services/git.service';
+import { GitUserDetailComponent } from './git-user-detail/git-user-detail.component';
 
 
 
@@ -66,7 +67,11 @@ const appRoutes: Routes = [
   },
   {
     path:"git",
-    component: GitUsersComponent
+    component: GitUsersComponent,
+    children: [{
+      path: ":userId",
+      component:GitUserDetailComponent
+    }]
   }
 ];
 @NgModule({
@@ -88,7 +93,8 @@ const appRoutes: Routes = [
     TrainerComponent,
     TrainerListComponent,
     TrainerDetailComponent,
-    GitUsersComponent
+    GitUsersComponent,
+    GitUserDetailComponent
   ],
   imports: [
     BrowserModule,
